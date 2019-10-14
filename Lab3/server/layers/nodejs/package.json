@@ -1,0 +1,19 @@
+{
+  "name": "saas-helpers",
+  "version": "1.0.0",
+  "description": "Collection of helpers to hide tenant context",
+  "license": "MIT-0",
+  "main": "log-manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix ."
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "njwt": "^1.0.0"
+  },
+  "author": "",
+  "dependencies": {
+    "aws-sdk": "^2.421.0"
+  }
+}

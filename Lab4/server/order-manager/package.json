@@ -1,0 +1,16 @@
+{
+  "name": "saas-layers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "order-manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix ."
+  },
+  "author": "",
+  "license": "MIT-0",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.4.0"
+  }
+}

@@ -1,13 +1,11 @@
-## My Project
+## Serverless multi-tenant SaaS using Lambda layers
 
-TODO: Fill this README out!
+Reference solution that illustrates the concept of multi-tenancy. Lambda layers is used to introduce reusable service constructs and abstract multi-tenancy from SaaS developers.
 
-Be sure to:
+Each Lab has it's own README.md for detailed deployment instructions.
 
-* Change the title in this README
-* Edit your repository description on GitHub
+Cloud9Setup folder is only intended to setup a cloud 9 environment to run these four labs. But these labs can be ran from your local machine as well (as long python3 is installed)
 
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
-
