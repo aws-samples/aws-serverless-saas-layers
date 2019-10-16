@@ -1,0 +1,142 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Simple CRUD web service. State is stored in a DynamoDB table.
+Resources:
+  ProductGetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: product-manager.get
+      Runtime: nodejs8.10
+      Timeout: 5
+      Policies:
+      - AmazonDynamoDBReadOnlyAccess
+      - AmazonS3FullAccess
+      Environment:
+        Variables:
+          LogsBucketName:
+            Fn::Join:
+            - '-'
+            - - serverless-saas-layers-logs
+              - Ref: AWS::AccountId
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /product/{resourceId}
+            Method: get
+      CodeUri: s3://serverless-saas-layers1571168674/72626c4e51b175c52838b4ea54ecbaaf
+  ProductPutFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: product-manager.put
+      Runtime: nodejs8.10
+      Timeout: 5
+      Policies:
+      - AmazonDynamoDBFullAccess
+      - AmazonS3FullAccess
+      Environment:
+        Variables:
+          LogsBucketName:
+            Fn::Join:
+            - '-'
+            - - serverless-saas-layers-logs
+              - Ref: AWS::AccountId
+      Events:
+        PutResource:
+          Type: Api
+          Properties:
+            Path: /product/{resourceId}
+            Method: put
+      CodeUri: s3://serverless-saas-layers1571168674/72626c4e51b175c52838b4ea54ecbaaf
+  ProductDeleteFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: product-manager.delete
+      Runtime: nodejs8.10
+      Timeout: 5
+      Policies:
+      - AmazonDynamoDBFullAccess
+      - AmazonS3FullAccess
+      Environment:
+        Variables:
+          LogsBucketName:
+            Fn::Join:
+            - '-'
+            - - serverless-saas-layers-logs
+              - Ref: AWS::AccountId
+      Events:
+        DeleteResource:
+          Type: Api
+          Properties:
+            Path: /product/{resourceId}
+            Method: delete
+      CodeUri: s3://serverless-saas-layers1571168674/72626c4e51b175c52838b4ea54ecbaaf
+  OrderGetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: order-manager.get
+      Runtime: nodejs8.10
+      Timeout: 5
+      Policies:
+      - AmazonDynamoDBReadOnlyAccess
+      - AmazonS3FullAccess
+      Environment:
+        Variables:
+          LogsBucketName:
+            Fn::Join:
+            - '-'
+            - - serverless-saas-layers-logs
+              - Ref: AWS::AccountId
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /order/{resourceId}
+            Method: get
+      CodeUri: s3://serverless-saas-layers1571168674/72626c4e51b175c52838b4ea54ecbaaf
+  OrderPutFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: order-manager.put
+      Runtime: nodejs8.10
+      Timeout: 5
+      Policies:
+      - AmazonDynamoDBFullAccess
+      - AmazonS3FullAccess
+      Environment:
+        Variables:
+          LogsBucketName:
+            Fn::Join:
+            - '-'
+            - - serverless-saas-layers-logs
+              - Ref: AWS::AccountId
+      Events:
+        PutResource:
+          Type: Api
+          Properties:
+            Path: /order/{resourceId}
+            Method: put
+      CodeUri: s3://serverless-saas-layers1571168674/72626c4e51b175c52838b4ea54ecbaaf
+  OrderDeleteFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: order-manager.delete
+      Runtime: nodejs8.10
+      Timeout: 5
+      Policies:
+      - AmazonDynamoDBFullAccess
+      - AmazonS3FullAccess
+      Environment:
+        Variables:
+          LogsBucketName:
+            Fn::Join:
+            - '-'
+            - - serverless-saas-layers-logs
+              - Ref: AWS::AccountId
+      Events:
+        DeleteResource:
+          Type: Api
+          Properties:
+            Path: /order/{resourceId}
+            Method: delete
+      CodeUri: s3://serverless-saas-layers1571168674/72626c4e51b175c52838b4ea54ecbaaf

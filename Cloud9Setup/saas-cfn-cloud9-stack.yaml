@@ -113,7 +113,8 @@ Resources:
         Ref: ServerlessSaaSVPCPublicSubnet
       InstanceType:
         Ref: EC2InstanceType
-      Name:
-        Ref: AWS::StackName
+      Name: Serverless-SaaS
+        
+        
   
   
