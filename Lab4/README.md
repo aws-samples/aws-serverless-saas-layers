@@ -7,7 +7,7 @@ In our prior solution, each service had a data access layer that directly access
 
 Look at the getPartition method inside partition-manager. Order and Product services will now invoke this method in their data access layers to get the Table name. This method uses the configuration defined above to determine the data partitioning model. “createTenantProductTable” method creates the actual table based upon data partitioning strategy.
 
-<b>Step 2</b>: Now, open /server/order-manager/order-manager-dal.js file. Add references for token-manager and partition-manager in this file.
+<b>Step 2</b>: Now, open /Lab4/server/order-manager/order-manager-dal.js file. Add references for token-manager and partition-manager in this file.
 ```javascript
 const partitionManager = require('/opt/nodejs/partition-manager.js');
 const tokenManager = require('/opt/nodejs/token-manager.js');
@@ -135,7 +135,7 @@ module.exports.deleteOrder = (event, callback) => {
 ```
 You can now delete the tableName and tableDefinition constants declared in order-manager-dal.js, since these are now coming from the partitionManager. 
 
-Repeat the same process in /server/product-manager/product-manager-dal.js file. You can refer serverless-saas-layers/FinalCode/Lab4/server/product-manager/product-manager-dal.js, if needed.
+Repeat the same process in /server/product-manager/product-manager-dal.js file. You can refer serverless-saas-layers/Solution/Lab4/server/product-manager/product-manager-dal.js, if needed.
 
 <b>Step 3</b>: We will now deploy this new code and see this in action. To do so, change current directory to “serverless-saas-layers/Lab4” inside cloud9 Terminal window. Run the below two commands to deploy the cloud formation for this stack. Wait for this command to finish. 
 ```
@@ -171,7 +171,7 @@ chmod +x server_deploy.sh
 chmod +x load_simulator.sh
 . load_simulator.sh <API GATEWAY URL>
 ```
-<b>Step 8</b>: Go back to DynamoDB inside your console and notice that now Order has tables named as “Order-Pooled” and Product has tables for each tenant. This indicates that Order is now following the pooled data partitioning and Product is now in Silo model.
+<b>Step 8</b>: Go back to DynamoDB inside your console and notice that now Order has a table named as “Order-Pooled” and Product has tables for each tenant. This indicates that Order is now following the pooled data partitioning and Product is now in Silo model.
 
 # Conclusion
 We just saw how you can progressively add tenant isolation across various components of your application. Multi-tenancy is the key to a SaaS based application and hence it is important to architect your application keeping that in mind across both application and storage layers.

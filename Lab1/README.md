@@ -1,18 +1,19 @@
 # Lab1 – Starting with a single-tenant serverless solution
 
-Before we can start digging into the details of the multi-tenant developer experience, we need to deploy a single-tenant serverless solution. This solution will serve as the baseline version that we will then slowly migrate into a multi-tenant environment that leverages layers to simplify and streamline the overall SaaS developer experience. This exercise will also get your familiar with the basic moving parts of the environment, the deployment mechanisms, and so on.
+Before we can start digging into the details of the multi-tenant developer experience, we need to deploy a single-tenant serverless solution. This solution will serve as the baseline version that we will then slowly migrate into a multi-tenant environment, that leverages layers to simplify and streamline the overall SaaS developer experience. This exercise will also get your familiar with the basic moving parts of the environment, the deployment mechanisms, and so on.
 
-<b>Step 1</b>: To get started, we’ll need to login to the AWS console using the URL and Hash that were provided. Once you enter this information, you’ll be able to access the AWS console with the account that was pre-provisioned for this session.
+<b>Step 1</b>: To get started, we’ll need to login to the AWS console. 
 
-    NOTE: it’s essential that you logout of any other AWS accounts you may be actively using. You will be using an account that will be provisioned for you as part of this experience.
+    NOTE: If you are doing this lab as part of an AWS event, then you will be using an account that will be provisioned for you as part of this experience. 
+    It’s essential that you logout of any other AWS accounts you may be actively using and use the account provisioned for you. 
 
-Much of the work that we’ll be doing in this lab will use the AWS Cloud9 IDE. This IDE will give us access to the code and provide us with a terminal window that will be used to invoke various commands as part of the overall experience. To open the Cloud9 IDE, you first navigate to the Cloud9 service and inside “You environments” click on “Open IDE”. This will launch the Cloud9 IDE.
+Much of the work that we’ll be doing in this lab will use the AWS Cloud9 IDE. This IDE will give us access to the code and provide us with a terminal window that will be used to invoke various commands as part of the overall experience. To open the Cloud9 IDE, you first navigate to the Cloud9 service and inside “You environments” click on “Open IDE” inside "Serverless-SaaS" environment. This will launch the Cloud9 IDE.
 
 <b>Step 2</b>: Once you’re in Cloud9 IDE, expand the serverless-saas-layers folder. Navigate to Lab1. Under this folder you’ll find the client and server folders for our Lab 1 solution. This folder holds all the information we’ll need for Lab 1. 
 
 Our first step is to get the lambda functions of our service deployed and running. To achieve this, we’ll run some provided scripts that will automate this deployment. To run this command, we’ll need to open a terminal window in the IDE. Select “Window” and “New Terminal” in Cloud9. 
 
-In the terminal window, change the current directory to “serverless-saas-layers/Lab1”. Run the below two commands to deploy the cloud formation for this stack. Wait for this command to finish.
+In the terminal window, change the current directory to “serverless-saas-layers/Lab1”. Run the below two commands to deploy the CloudFormation for this stack. Wait for this command to finish.
 
 ```
 chmod +x server_deploy.sh
@@ -41,7 +42,7 @@ Run the below load simulator script and pass the API Gateway URL from the above 
 
 This will create new orders and products by invoking the services. Allow the simulator to complete before proceeding to the next step.
 
-The simulator basically performs UPDATE, GET, and DELETE actions for you. You can also run below commands manually to see this in action. To do so, from the terminal, let’s run below commands. Replace xxxxxxxx below with your API gateway URL’s sub-domain.
+The simulator basically performs PUT, GET, and DELETE actions for you. You can also run below commands manually to see this in action. To do so, from the terminal, let’s run below commands. Replace xxxxxxxx below with your API gateway URL’s sub-domain.
 
 <b>PUT</b>
 ```
@@ -76,5 +77,7 @@ select * from Productlogs order by timestamp;
 ```
 
 <p align="center"><img src="../Images/Lab1-AthenaResults.png" alt="Lab 1 - Athena Results"/></p>
+
+You have now completed Lab1. 
 
 [Continue to Lab 2](../Lab2/README.md)

@@ -69,6 +69,8 @@ Above query will provide the usage of order-manager service by each tenantId for
 
 So far, we have seen how we can leverage Lambda layers to centralize multi-tenant logging and metrics collection. But our Product and Order tables inside DynamoDB has no tenant awareness at this point. In our next lab we will introduce you to the concept of Pool Vs Silo model of data storage and how DynamoDB can leverage those to partition data by tenant.
 
+You have now completed Lab3. 
+
 [Continue to Lab 4](../Lab4/README.md)
 
 

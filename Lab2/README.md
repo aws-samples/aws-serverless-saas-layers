@@ -1,7 +1,7 @@
 # Lab2 – Code re-usability and multi-tenancy using Lambda Layers
-The next step in this process is to begin to make our move to a multi-tenant solution that leverage Lambda layers to hide away the details of multi-tenancy. The lab will guide you through the process of carving out and moving constructs to layers and adding multi-tenant context to our single-tenant solution. Our multi-tenant focus in this lab will start with logging. A multi-tenant environment needs to emit logs that include tenant context. At the same time, we don’t want developers figuring out how to inject that context. Instead, we want our logging frameworks and tooling to inject this tenant context on our behalf. It’s a very basic mechanism, but it will emit logs that will be essential to track down and troubleshoot the activity of individual tenants. For this particular lab, we’ll be using layers as a way to introduce this logging functionality in a way that can be reused by all of our functions.
+The next step in this process is to begin to make our move to a multi-tenant solution that leverages Lambda layers to hide away the details of multi-tenancy. The lab will guide you through the process of carving out and moving constructs to layers and adding multi-tenant context to our single-tenant solution. Our multi-tenant focus in this lab will start with logging. A multi-tenant environment needs to emit logs that include tenant context. At the same time, we don’t want developers figuring out how to inject that context. Instead, we want our logging frameworks and tooling to inject this tenant context on our behalf. It’s a very basic mechanism, but it will emit logs that will be essential to track down and troubleshoot the activity of individual tenants. For this particular lab, we’ll be using layers as a way to introduce this logging functionality in a way that can be reused by all of our functions.
 
-<b>Step 1</b>: Let’s first explore the code a bit to see how we have used Layers to provide Logging service as a reusable construct. Inside your Cloud9 IDE, Navigate to server-saas-layers -> Lab2 -> server -> layers folder. Our Cloud formation, for this Lab, deploys this folder inside S3 and makes available to all the Lambda function that references it. Note the nodejs folder inside layers. This naming convention ensures that all the content inside is available to any Lambda function using nodejs runtime.
+<b>Step 1</b>: Let’s first explore the code a bit to see how we have used Layers to provide Logging service as a reusable construct. Inside your Cloud9 IDE, Navigate to serverless-saas-layers -> Lab2 -> server -> layers folder. Our CloudFormation, for this Lab, deploys this folder inside S3 and makes available to all the Lambda function that references it. Note the nodejs folder inside layers. This naming convention ensures that all the content inside this folder is available to any Lambda function using nodejs runtime.
 
 <b>Step 2</b>: The first step is to add a token manager class to the server section of this lab. Navigate to the folder Lab2 -> server -> layers -> nodejs. Create a new file and call it token-manager.js. Add the below code to the token-manager.js file and save the file.
 
@@ -133,5 +133,7 @@ select * from Orderlogs
 where tenantid='tenant1'
 order by timestamp
 ```
+
+You have now completed Lab2. 
 
 [Continue to Lab 3](../Lab3/README.md)
