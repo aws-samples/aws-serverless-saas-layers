@@ -134,6 +134,6 @@ where tenantid='tenant1'
 order by timestamp
 ```
 
-You have now completed Lab2. 
+You have now completed Lab 2. 
 
 [Continue to Lab 3](../Lab3/README.md)
