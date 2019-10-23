@@ -33,23 +33,23 @@ If you are running this lab on your own, then follow these instructions to setup
 ```
 aws cloudformation deploy --template-file saas-cfn-cloud9-stack.yaml --stack-name saas-cfn-cloud9-stack
 ```
-
+<br></br>
 ## Lab1 – Starting with a single-tenant serverless solution
 
 [![Lab1](Images/lab1.png)](https://github.com/aws-samples/aws-serverless-saas-layers/blob/master/Lab1/README.md "Lab 1")
-
+<br></br>
 ## Lab2 – Code re-usability and multi-tenancy using Lambda Layers 
 
 [![Lab2](Images/lab2.png)](https://github.com/aws-samples/aws-serverless-saas-layers/blob/master/Lab2/README.md "Lab 2")
-
+<br></br>
 ## Lab3 – Collect metrices using a metrics manager
 
 [![Lab3](Images/lab3.png)](https://github.com/aws-samples/aws-serverless-saas-layers/blob/master/Lab3/README.md "Lab 3")
-
+<br></br>
 ## Lab4 – Data partitioning using Silo and Pool model
 
 [![Lab4](Images/lab4.png)](https://github.com/aws-samples/aws-serverless-saas-layers/blob/master/Lab4/README.md "Lab 4")
 
-## License
+# License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
