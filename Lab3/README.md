@@ -64,7 +64,7 @@ chmod +x load_simulator.sh
 ```sql
 select tenantId, DATE(Ordermetrics.timestamp) UsageDate, sum(duration) TotalUsageinMilliSeconds from Ordermetrics group by tenantId, DATE(Ordermetrics.timestamp)
 ```
-<p align="center"><img src="../Images/Lab3-AthenaResults.png" alt="Lab 3 - Athena Results"/></p>
+<p align="center"><kbd><img src="../Images/Lab3-AthenaResults.png" alt="Lab 3 - Athena Results"/></kbd></p>
 Above query will provide the usage of order-manager service by each tenantId for each date recorded.
 
 So far, we have seen how we can leverage Lambda layers to centralize multi-tenant logging and metrics collection. But our Product and Order tables inside DynamoDB has no tenant awareness at this point. In our next lab we will introduce you to the concept of Pool Vs Silo model of data storage and how DynamoDB can leverage those to partition data by tenant.

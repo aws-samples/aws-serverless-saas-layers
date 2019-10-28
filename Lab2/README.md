@@ -121,7 +121,7 @@ Step 7: We will now run Athena queries to see the new log messages. Go to Athena
 select * from Orderlogs order by timestamp
 ```
 
-<p align="center"><img src="../Images/Lab2-AthenaResults.png" alt="Lab 2 - Athena Results"/></p>
+<p align="center"><kbd><img src="../Images/Lab2-AthenaResults.png" alt="Lab 2 - Athena Results"/></kbd></p>
 
 Below query will provide logs for product service.
 ```sql

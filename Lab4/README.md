@@ -148,9 +148,9 @@ chmod +x load_simulator.sh
 . load_simulator.sh <API GATEWAY URL>
 ```
 <b>Step 5</b>: Let’s now go to DynamoDB and see the tables created as part of this process. You will notice four new tables, namely, “Product-Pooled”, “Order-Silo-tenant1”, “Order-Silo-tenant2” and, “Order-Silo-tenant3”. 
-<p align="center"><img src="../Images/Lab4-Dynamodb.png" alt="Lab4 - DynamoDB Silo"/></p>
+<p align="center"><kbd><img src="../Images/Lab4-Dynamodb.png" alt="Lab4 - DynamoDB Silo"/></kbd></p>
 Look at table structure of Product-Pooled table in the overview tab. Notice it has TenantId as partition key and ProductId as the sort key. On the other hand, we have individual tables for Order. As an example, Order-Silo-tenant1 stores data only for tenantId 1 and has OrderId as partition key.
-<p align="center"><img src="../Images/Lab4-DynamoDB2.png" alt="Lab4 - DynamoDB Pooled"/></p>
+<p align="center"><kbd><img src="../Images/Lab4-DynamoDB2.png" alt="Lab4 - DynamoDB Pooled"/></kbd></p>
 <b>Step 6</b>: We can also change this data partitioning behavior by modifying our partitionMap variable, inside partition-manager.js. Change the Model for ProductManager to Silo and OrderManager to Pool. The new configuration should look like below:
 
 ```javascript
