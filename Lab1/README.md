@@ -78,6 +78,6 @@ select * from Productlogs order by timestamp;
 
 <p align="center"><kbd><img src="../Images/Lab1-AthenaResults.png" alt="Lab 1 - Athena Results"/></kbd></p>
 
-You have now completed Lab1. 
+You have now completed Lab 1. 
 
 [Continue to Lab 2](../Lab2/README.md)

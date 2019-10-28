@@ -50,6 +50,9 @@ aws cloudformation deploy --template-file saas-cfn-cloud9-stack.yaml --stack-nam
 
 [![Lab4](Images/lab4.png)](https://github.com/aws-samples/aws-serverless-saas-layers/blob/master/Lab4/README.md "Lab 4")
 
+
+[Proceed to Lab 1 when ready to begin.](Lab1/)
+
 # License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
