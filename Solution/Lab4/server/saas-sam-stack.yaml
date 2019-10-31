@@ -9,7 +9,7 @@ Resources:
       Layers: 
         - !Ref DependencyLayer
       Runtime: nodejs8.10
-      Timeout: 10
+      Timeout: 15
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
         - AmazonS3FullAccess
@@ -30,7 +30,7 @@ Resources:
       Layers: 
         - !Ref DependencyLayer
       Runtime: nodejs8.10
-      Timeout: 10
+      Timeout: 15
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
@@ -51,7 +51,7 @@ Resources:
       Layers: 
         - !Ref DependencyLayer
       Runtime: nodejs8.10
-      Timeout: 10
+      Timeout: 15
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
@@ -72,7 +72,7 @@ Resources:
       Layers: 
         - !Ref DependencyLayer
       Runtime: nodejs8.10
-      Timeout: 10
+      Timeout: 15
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
         - AmazonS3FullAccess
@@ -93,7 +93,7 @@ Resources:
       Layers: 
         - !Ref DependencyLayer
       Runtime: nodejs8.10
-      Timeout: 10
+      Timeout: 15
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
@@ -114,7 +114,7 @@ Resources:
       Layers: 
         - !Ref DependencyLayer
       Runtime: nodejs8.10
-      Timeout: 10
+      Timeout: 15
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess

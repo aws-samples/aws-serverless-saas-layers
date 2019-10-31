@@ -48,7 +48,7 @@ metricsManager.recordMetricEvent(event, "OrderManager", "GetOrder", event, end -
 ```
 For this to work, you need to also declare the “start” constant. A little exercise for you here - at the beginning of each method add a “const start” like the end constant. 
 ```javascript
-cons start = new Date().getTime();
+const start = new Date().getTime();
 ```
 <b>Step 3</b>: Now let’s deploy this new code. To do so, change current directory to “serverless-saas-layers/Lab3” inside cloud9 Terminal window. Run the below two commands to deploy the cloud formation for this stack. Wait for this to finish. This will deploy our new multi-tenant metrics-manager.
 ```

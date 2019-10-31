@@ -1,0 +1,120 @@
+Parameters:
+  EC2InstanceType:
+    Default: t2.micro
+    Description: EC2 instance type on which IDE runs
+    Type: String
+  AutoHibernateTimeout:
+    Default: 30
+    Description: How many minutes idle before shutting down the IDE
+    Type: Number
+Resources:
+
+  ServerlessSaaSVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: default
+      Tags:
+      - Key: Name
+        Value: ServerlessSaaS/VPC
+
+  ServerlessSaaSVPCPublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.0.0/18
+      VpcId:
+        Ref: ServerlessSaaSVPC
+      AvailabilityZone:
+        Fn::Select:
+        - 0
+        - Fn::GetAZs: ''
+      MapPublicIpOnLaunch: true
+      Tags:
+      - Key: Name
+        Value: ServerlessSaaS/VPC/PublicSubnet1
+      - Key: aws-cdk:subnet-name
+        Value: Public
+      - Key: aws-cdk:subnet-type
+        Value: Public
+
+  ServerlessSaaSVPCPublicSubnetRoutetable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: ServerlessSaaSVPC
+      Tags:
+      - Key: Name
+        Value: ServerlessSaaS/VPC/PublicSubnet1
+     
+  ServerlessSaaSVPCPublicSubnetRoutetableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: ServerlessSaaSVPCPublicSubnetRoutetable
+      SubnetId:
+        Ref: ServerlessSaaSVPCPublicSubnet
+     
+  ServerlessSaaSVPCPublicSubnetDefaultRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: ServerlessSaaSVPCPublicSubnetRoutetable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: ServerlessSaaSVPCIGW
+    DependsOn:
+    - ServerlessSaaSVPCVPCGW
+     
+  ServerlessSaaSVPCPublicSubnetEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+     
+  ServerlessSaaSVPCPublicSubnetNATGateway:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId:
+        Fn::GetAtt:
+        - ServerlessSaaSVPCPublicSubnetEIP
+        - AllocationId
+      SubnetId:
+        Ref: ServerlessSaaSVPCPublicSubnet
+      Tags:
+      - Key: Name
+        Value: ServerlessSaaS/VPC/PublicSubnet1
+     
+  ServerlessSaaSVPCIGW:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+      - Key: Name
+        Value: ServerlessSaaS/VPC
+     
+  ServerlessSaaSVPCVPCGW:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: ServerlessSaaSVPC
+      InternetGatewayId:
+        Ref: ServerlessSaaSVPCIGW
+     
+  Cloud9IDE:
+    Type: AWS::Cloud9::EnvironmentEC2
+    Properties:
+      Repositories:
+      - RepositoryUrl: https://github.com/aws-samples/aws-serverless-saas-layers.git
+        PathComponent: /serverless-saas-layers
+      Description: Cloud9 IDE
+      AutomaticStopTimeMinutes:
+        Ref: AutoHibernateTimeout
+      SubnetId:
+        Ref: ServerlessSaaSVPCPublicSubnet
+      InstanceType:
+        Ref: EC2InstanceType
+      Name: Serverless-SaaS
+      OwnerArn: !Sub "arn:aws:sts::${AWS::AccountId}:assumed-role/TeamRole/MasterKey"
+        
+  
+  
