@@ -46,7 +46,7 @@ The intent here is to extract the tenantId inside the JWT payload of the request
 
 <b>Step 3</b>: Now, let’s fix the reference of log-manager inside order-manager and product-manager.
 
-Open /server/order-manager-dal.js file. Look for the below TODOs and replace the existing logManager constant with the below implementation. Notice that log-manager.js is under the /opt/nodejs. This means that now log-manager is a shared construct unlike what we saw in Lab1.
+Open /server/order-manager/order-manager-dal.js file. Look for the below TODOs and replace the existing logManager constant with the below implementation. Notice that log-manager.js is under the /opt/nodejs. This means that now log-manager is a shared construct unlike what we saw in Lab1.
 
 ```javascript
 //TODO: Fix this reference to refer the layers.
@@ -84,7 +84,7 @@ Now, in the same file, replace all instances of below TODO with the provided cod
 
 Save the saas-sam-stack.yaml file once this is complete.
 
-Step 5: Now navigate to the folder Lab2->client. In this step modify the utils.py to add a create_jwt method. Look for below TODO and replace with the code below.
+<b>Step 5</b>: Now navigate to the folder Lab2->client. In this step modify the utils.py to add a create_jwt method. Look for below TODO and replace with the code below.
 
 ```python
 #TODO: Add a static method to create JWT token which has tenantId in it
@@ -111,12 +111,12 @@ Save the file.
 chmod +x server_deploy.sh
 . server_deploy.sh
 ```
-<b>Step 5</b>: Now run the load_simulator.sh script using below commands. Let this finish before proceeding. Follow the same process to get API Gateway URL as described in Lab1. The URL should be same as before. 
+<b>Step 7</b>: Now run the load_simulator.sh script using below commands. Let this finish before proceeding. Follow the same process to get API Gateway URL as described in Lab1. The URL should be same as before. 
 ```
 chmod +x load_simulator.sh
 . load_simulator.sh <API GATEWAY URL> 
 ```
-Step 7: We will now run Athena queries to see the new log messages. Go to Athena, inside Services, and select “serverlesssaas” database from the database drop down on the left. Run below query by clicking “Run query” button to see logs for order service and explore the results.
+<b>Step 8</b>: We will now run Athena queries to see the new log messages. Go to Athena, inside Services, and select “serverlesssaas” database from the database drop down on the left. Run below query by clicking “Run query” button to see logs for order service and explore the results.
 ```sql
 select * from Orderlogs order by timestamp
 ```

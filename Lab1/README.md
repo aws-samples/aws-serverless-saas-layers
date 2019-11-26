@@ -20,11 +20,13 @@ chmod +x server_deploy.sh
 . server_deploy.sh
 ```
 
-Once this has been completed, the following infrastructure will be deployed:
+This step can take up to 3-4 mins to complete. Once this has been completed, the following infrastructure will be deployed:
 
 <p align="center"><img src="../Images/Lab1-Architecture.png" alt="Architecture Overview"/></p>
 
 <b>Step 3</b>: We will now need the URL of our API Gateway to make some calls to the deployed services. To do this, navigate to Amazon API Gateway service in the AWS Console, and click on the “saas-sam-stack” API and select Stages from the menu on the left. Now, select Prod and copy the “invoke URL”.
+    
+    If you doing this inside AWS provisioned account, you might see a warning at the top related to insufficient permissions. You can safely ignore this warning.
 
 <p align="center"><kbd><img src="../Images/Lab1-APIGateway.png" alt="Architecture Overview"/></kbd></p>
 
