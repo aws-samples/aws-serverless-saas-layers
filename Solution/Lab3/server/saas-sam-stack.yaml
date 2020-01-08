@@ -8,7 +8,7 @@ Resources:
       Handler: product-manager.get
       Layers: 
         - !Ref DependencyLayer
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
@@ -29,7 +29,7 @@ Resources:
       Handler: product-manager.put
       Layers: 
         - !Ref DependencyLayer
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess
@@ -50,7 +50,7 @@ Resources:
       Handler: product-manager.delete
       Layers: 
         - !Ref DependencyLayer
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess
@@ -71,7 +71,7 @@ Resources:
       Handler: order-manager.get
       Layers: 
         - !Ref DependencyLayer
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
@@ -92,7 +92,7 @@ Resources:
       Handler: order-manager.put
       Layers: 
         - !Ref DependencyLayer
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess
@@ -113,7 +113,7 @@ Resources:
       Handler: order-manager.delete
       Layers: 
         - !Ref DependencyLayer
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess
@@ -136,6 +136,6 @@ Resources:
             ContentUri: layers/
             CompatibleRuntimes:
               - nodejs6.10
-              - nodejs8.10
+              - nodejs10.x
             LicenseInfo: 'MIT'
             RetentionPolicy: Retain
