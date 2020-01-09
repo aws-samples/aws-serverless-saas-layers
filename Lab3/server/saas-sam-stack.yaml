@@ -135,7 +135,7 @@ Resources:
             Description: Dependencies for centralized services
             ContentUri: layers/
             CompatibleRuntimes:
-              - nodejs6.10
+              - nodejs10.x
               - nodejs8.10
             LicenseInfo: 'MIT'
             RetentionPolicy: Retain
