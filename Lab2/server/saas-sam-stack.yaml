@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: product-manager.get
       #TODO: Add reference to Layers
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
@@ -27,7 +27,7 @@ Resources:
       Handler: product-manager.put
       Layers: 
         - !Ref DependencyLayer
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess
@@ -46,7 +46,7 @@ Resources:
     Properties:
       Handler: product-manager.delete
       #TODO: Add reference to Layers
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess
@@ -65,7 +65,7 @@ Resources:
     Properties:
       Handler: order-manager.get
       #TODO: Add reference to Layers
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
@@ -84,7 +84,7 @@ Resources:
     Properties:
       Handler: order-manager.put
       #TODO: Add reference to Layers
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess
@@ -103,7 +103,7 @@ Resources:
     Properties:
       Handler: order-manager.delete
       #TODO: Add reference to Layers
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 5
       Policies: 
         - AmazonDynamoDBFullAccess

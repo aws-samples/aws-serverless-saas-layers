@@ -1,0 +1,4 @@
+node_modules/
+sam-output.yaml
+.vscode/
+__pycache__/

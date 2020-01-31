@@ -14,6 +14,7 @@
   },
   "author": "",
   "dependencies": {
-    "aws-sdk": "^2.421.0"
+    "aws-sdk": "^2.421.0",
+    "dynamodb-doc": "^1.0.0"
   }
 }

@@ -9,7 +9,9 @@
   },
   "author": "",
   "license": "MIT-0",
-  "dependencies": {},
+  "dependencies": {
+    "dynamodb-doc": "^1.0.0"
+  },
   "devDependencies": {
     "eslint": "^6.4.0"
   }
