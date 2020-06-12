@@ -9,12 +9,11 @@
     "lint": "eslint --fix ."
   },
   "devDependencies": {
-    "eslint": "^6.4.0",
     "njwt": "^1.0.0"
   },
   "author": "",
   "dependencies": {
-    "aws-sdk": "^2.421.0",
+    "aws-sdk": "^2.695.0",
     "dynamodb-doc": "^1.0.0"
   }
 }
