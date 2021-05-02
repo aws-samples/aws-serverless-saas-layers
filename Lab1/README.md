@@ -13,6 +13,12 @@ Much of the work that we’ll be doing in this lab will use the AWS Cloud9 IDE. 
 
 Our first step is to get the lambda functions of our service deployed and running. To achieve this, we’ll run some provided scripts that will automate this deployment. To run this command, we’ll need to open a terminal window in the IDE. Select “Window” and “New Terminal” in Cloud9. 
 
+In the terminal window, change the current directory to “serverless-saas-layers/Lab1/server/order-manager” and execute the following command. Do the same in the folder “serverless-saas-layers/Lab1/server/product-manager”
+
+```
+npm install
+```
+
 In the terminal window, change the current directory to “serverless-saas-layers/Lab1”. Run the below two commands to deploy the CloudFormation for this stack. Wait for this command to finish.
 
 ```
