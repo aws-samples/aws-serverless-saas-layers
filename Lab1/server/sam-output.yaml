@@ -6,7 +6,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: product-manager.get
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Timeout: 15
       Policies:
       - AmazonDynamoDBReadOnlyAccess
@@ -29,7 +29,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: product-manager.put
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Timeout: 15
       Policies:
       - AmazonDynamoDBFullAccess
@@ -52,7 +52,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: product-manager.delete
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Timeout: 15
       Policies:
       - AmazonDynamoDBFullAccess
@@ -75,7 +75,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: order-manager.get
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Timeout: 15
       Policies:
       - AmazonDynamoDBReadOnlyAccess
@@ -98,7 +98,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: order-manager.put
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Timeout: 5
       Policies:
       - AmazonDynamoDBFullAccess
@@ -121,7 +121,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: order-manager.delete
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Timeout: 15
       Policies:
       - AmazonDynamoDBFullAccess

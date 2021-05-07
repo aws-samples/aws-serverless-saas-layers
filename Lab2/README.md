@@ -68,7 +68,7 @@ Open /server/saas-sam-stack.yaml. Look for the below TODO and replace with the D
             Description: Dependencies for centralized services
             ContentUri: layers/
             CompatibleRuntimes:
-              - nodejs10.x
+              - nodejs14.x
             LicenseInfo: 'MIT'
             RetentionPolicy: Retain
 ```
