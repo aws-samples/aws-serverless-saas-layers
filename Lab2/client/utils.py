@@ -16,10 +16,15 @@ class Utils:
         return random.randrange(start,end,1)
 
     #TODO: Add a static method to create JWT token which has tenantId in it
+    @staticmethod
+    def create_jwt():
+        encoded_jwt = jwt.encode({'tenantId': random.choice(['tenant1', 'tenant2', 'tenant3'])}, SECRET_KEY, algorithm='HS256')
+        return encoded_jwt;
 
     @staticmethod
     def get_headers():
         return {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
             #TODO: Add Authorization header with JWT
+            "Authorization":"Bearer " + Utils.create_jwt()
         }
