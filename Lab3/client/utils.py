@@ -18,7 +18,7 @@ class Utils:
     @staticmethod
     def create_jwt():
         encoded_jwt = jwt.encode({'tenantId': random.choice(['tenant1', 'tenant2', 'tenant3'])}, SECRET_KEY, algorithm='HS256')
-        return encoded_jwt.decode("utf-8")
+        return encoded_jwt;
 
     @staticmethod
     def get_headers():
