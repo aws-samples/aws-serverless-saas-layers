@@ -130,6 +130,5 @@ Resources:
             ContentUri: layers/
             CompatibleRuntimes:
               - nodejs14.x
-              - nodejs14.x
             LicenseInfo: 'MIT'
             RetentionPolicy: Retain
