@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: product-manager.get
       Runtime: nodejs14.x
-      Timeout: 15
+      Timeout: 30
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
         - AmazonS3FullAccess
@@ -25,7 +25,7 @@ Resources:
     Properties:
       Handler: product-manager.put
       Runtime: nodejs14.x
-      Timeout: 15
+      Timeout: 30
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
@@ -43,7 +43,7 @@ Resources:
     Properties:
       Handler: product-manager.delete
       Runtime: nodejs14.x
-      Timeout: 15
+      Timeout: 30
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
@@ -61,7 +61,7 @@ Resources:
     Properties:
       Handler: order-manager.get
       Runtime: nodejs14.x
-      Timeout: 15
+      Timeout: 30
       Policies: 
         - AmazonDynamoDBReadOnlyAccess
         - AmazonS3FullAccess
@@ -79,7 +79,7 @@ Resources:
     Properties:
       Handler: order-manager.put
       Runtime: nodejs14.x
-      Timeout: 5
+      Timeout: 30
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
@@ -97,7 +97,7 @@ Resources:
     Properties:
       Handler: order-manager.delete
       Runtime: nodejs14.x
-      Timeout: 15
+      Timeout: 30
       Policies: 
         - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
