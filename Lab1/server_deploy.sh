@@ -6,6 +6,13 @@ curdate=`date +%s`
 #create a bucket to push the sam code
 aws s3 mb s3://serverless-saas-layers$curdate
 
+pushd ./server/order-manager
+npm install
+popd
+pushd ./server/product-manager
+npm install
+popd
+
 #package the sam code
 sam package --template-file server/saas-sam-stack.yaml --output-template-file server/sam-output.yaml --s3-bucket serverless-saas-layers$curdate --region us-east-1
 
