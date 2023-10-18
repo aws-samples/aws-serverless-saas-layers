@@ -1,12 +1,12 @@
-# Building Serverless SaaS with Lambda layers
+# Building Serverless SaaS with AWS Lambda layers
 
 ## Introduction
 One of the key goals of every software-as-a-service (SaaS) architect, is to create an environment where the complexity of multi-tenancy is largely hidden away from developers. The goal of this session is to introduce frameworks, libraries, and tooling that limits a developer’s need to have any awareness of tenant context. This will free up developers to focus on the features and functionality of their system. 
 
-The general strategy applied here is to move all the code that accesses and applies tenant context into a set of libraries. These libraries are then referenced by each of the components/services in your environment. This is precisely where Lambda Layers comes into picture. In this Lab, we’ll look at how Lambda Layers allows you to centralize your tenant aware libraries without impact the size or load-time of your SaaS application’s functions.
+The general strategy applied here is to move all the code that accesses and applies tenant context into a set of libraries. These libraries are then referenced by each of the components/services in your environment. This is precisely where AWS Lambda Layers comes into picture. In this Lab, we’ll look at how AWS Lambda Layers allows you to centralize your tenant aware libraries without impact the size or load-time of your SaaS application’s functions.
 
 ### Hiding Away the Details of Multi-Tenancy
-Before we dig into the Lambda Layers, we first need to understand what it means to hide away the details of multi-tenancy. Let’s start by looking at a common microservice that might be part of our SaaS environment. The figure below provides a high-level view of some of the common components that might be part of my service implementation.
+Before we dig into the AWS Lambda Layers, we first need to understand what it means to hide away the details of multi-tenancy. Let’s start by looking at a common microservice that might be part of our SaaS environment. The figure below provides a high-level view of some of the common components that might be part of my service implementation.
 
 <p align="center"><img src="./Images/Introduction-Architecture.png" alt="Architecture Overview"/></p>
 
@@ -38,7 +38,7 @@ aws cloudformation deploy --template-file saas-cfn-cloud9-stack.yaml --stack-nam
 
 [![Lab1](Images/lab1.png)](https://github.com/aws-samples/aws-serverless-saas-layers/blob/master/Lab1/README.md "Lab 1")
 <br></br>
-## Lab2 – Code re-usability and multi-tenancy using Lambda Layers 
+## Lab2 – Code re-usability and multi-tenancy using AWS Lambda Layers 
 
 [![Lab2](Images/lab2.png)](https://github.com/aws-samples/aws-serverless-saas-layers/blob/master/Lab2/README.md "Lab 2")
 <br></br>
