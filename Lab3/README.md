@@ -1,8 +1,8 @@
 # Lab3 – Collect metrices using a metrics manager
 
-Metrics are a fundamental tool that are used by SaaS organizations to get visibility into the activity, consumption, and operational patterns of your tenants. This very much follows the same pattern we used with the log manager in Lab 2. We’ll capture and publish metric data that will include tenant context. This will enable us to do downstream analytics on our metric data to make business and technical decisions. The additive piece of this is that we will need to instrument the code of our services with calls that identify and publish metrics. Naturally, this will be simplified version of metrics, but it will give you a sense of how this mechanism works and how publishing can be centralized and processed in a Lambda Layer.
+Metrics are a fundamental tool that are used by SaaS organizations to get visibility into the activity, consumption, and operational patterns of your tenants. This very much follows the same pattern we used with the log manager in Lab 2. We’ll capture and publish metric data that will include tenant context. This will enable us to do downstream analytics on our metric data to make business and technical decisions. The additive piece of this is that we will need to instrument the code of our services with calls that identify and publish metrics. Naturally, this will be simplified version of metrics, but it will give you a sense of how this mechanism works and how publishing can be centralized and processed in a AWS Lambda Layer.
 
-<b>Step 1</b>: In Cloud9 IDE, Navigate to serverless-saas-layers -> Lab3 -> server -> layers -> nodejs
+<b>Step 1</b>: In AWS Cloud9 IDE, Navigate to serverless-saas-layers -> Lab3 -> server -> layers -> nodejs
 
 Add a new file in this folder and name it metrics-manager.js. Copy and paste the below code into the file.
 
@@ -67,7 +67,7 @@ select tenantId, DATE(Ordermetrics.timestamp) UsageDate, sum(duration) TotalUsag
 <p align="center"><kbd><img src="../Images/Lab3-AthenaResults.png" alt="Lab 3 - Athena Results"/></kbd></p>
 Above query will provide the usage of order-manager service by each tenantId for each date recorded.
 
-So far, we have seen how we can leverage Lambda layers to centralize multi-tenant logging and metrics collection. But our Product and Order tables inside DynamoDB has no tenant awareness at this point. In our next lab we will introduce you to the concept of Pool Vs Silo model of data storage and how DynamoDB can leverage those to partition data by tenant.
+So far, we have seen how we can leverage AWS Lambda layers to centralize multi-tenant logging and metrics collection. But our Product and Order tables inside DynamoDB has no tenant awareness at this point. In our next lab we will introduce you to the concept of Pool Vs Silo model of data storage and how Amazon DynamoDB can leverage those to partition data by tenant.
 
 You have now completed Lab 3. 
 
