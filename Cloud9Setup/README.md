@@ -1,8 +1,8 @@
-# Setup Cloud9
+# Setup AWS Cloud9
 
-If you are running this lab as part an AWS event, then the Cloud9 should already be setup in the AWS accounts provided to you by your instructor. Please skip this section if this is the case. 
+If you are running this lab as part an AWS event, then the AWS Cloud9 should already be setup in the AWS accounts provided to you by your instructor. Please skip this section if this is the case. 
 
-If you are running this lab on your own, then follow these instructions to setup Cloud9 in your AWS account.
+If you are running this lab on your own, then follow these instructions to setup AWS Cloud9 in your AWS account.
 
 <b>Step 1</b>: Navigate to https://raw.githubusercontent.com/aws-samples/aws-serverless-saas-layers/master/Cloud9Setup/saas-cfn-cloud9-stack.yaml. This will display the contents of saas-cfn-cloud9-stack.yaml in your browser. 
 
