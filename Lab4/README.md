@@ -1,9 +1,9 @@
 # Lab4 – Data partitioning using Silo and Pool model
-Now that we’ve moved logging and metrics to use layers, we can start to think about what other aspects of our multi-tenancy could naturally move to a Lambda Layer. One candidate could be data access. Generally, we’d like developers to not have visibility into how data might be partitioned for each tenant. One way to approach this is to introduce a separate partition manager that is accessed from your code to acquire the information needed to access a tenant’s data. So, if our data is in separate databases (a silo model) or using a shared database construct (a pool model), then we can make this entirely transparent to them by having this configuration managed outside the developer’s view. 
+Now that we’ve moved logging and metrics to use layers, we can start to think about what other aspects of our multi-tenancy could naturally move to a AWS Lambda Layer. One candidate could be data access. Generally, we’d like developers to not have visibility into how data might be partitioned for each tenant. One way to approach this is to introduce a separate partition manager that is accessed from your code to acquire the information needed to access a tenant’s data. So, if our data is in separate databases (a silo model) or using a shared database construct (a pool model), then we can make this entirely transparent to them by having this configuration managed outside the developer’s view. 
 
 In our prior solution, each service had a data access layer that directly accessed the data. For this lab, we’ll introduce a new Data Partition Manager in a layer that will resolve the table name for a given tenant. The Data Access Layer of our services will be modified to make calls to this layer to resolve the name of the table that will be used.
 
-<b>Step 1</b>: In the Cloud9 IDE, Navigate to serverless-saas-layers -> Lab4 -> server -> layers -> nodejs -> partition-manager.js. Look at the partitionMap variable. We are using this variable to store service level configuration. In this case ProductService has Pool model, i.e. single table partitioned by tenantId. On the other hand, OrderService follows Silo model. 
+<b>Step 1</b>: In the AWS Cloud9 IDE, Navigate to serverless-saas-layers -> Lab4 -> server -> layers -> nodejs -> partition-manager.js. Look at the partitionMap variable. We are using this variable to store service level configuration. In this case ProductService has Pool model, i.e. single table partitioned by tenantId. On the other hand, OrderService follows Silo model. 
 
 Look at the getPartition method inside partition-manager. Order and Product services will now invoke this method in their data access layers to get the Table name. This method uses the configuration defined above to determine the data partitioning model. “createTenantProductTable” method creates the actual table based upon data partitioning strategy.
 
@@ -137,12 +137,12 @@ You can now delete the tableName and tableDefinition constants declared in order
 
 Repeat the same process in /server/product-manager/product-manager-dal.js file. You can refer serverless-saas-layers/Solution/Lab4/server/product-manager/product-manager-dal.js, if needed.
 
-<b>Step 3</b>: We will now deploy this new code and see this in action. To do so, change current directory to “serverless-saas-layers/Lab4” inside cloud9 Terminal window. Run the below two commands to deploy the cloud formation for this stack. Wait for this command to finish. 
+<b>Step 3</b>: We will now deploy this new code and see this in action. To do so, change current directory to “serverless-saas-layers/Lab4” inside AWS Cloud9 Terminal window. Run the below two commands to deploy the cloud formation for this stack. Wait for this command to finish. 
 ```
 chmod +x server_deploy.sh
 . server_deploy.sh
 ```
-<b>Step 4</b>: Now run the load_simulator.sh script using below commands. Let this finish before proceeding. Follow the same process to get API Gateway URL as described in Lab1. The URL should be same as before. 
+<b>Step 4</b>: Now run the load_simulator.sh script using below commands. Let this finish before proceeding. Follow the same process to get Amazon API Gateway URL as described in Lab1. The URL should be same as before. 
 ```
 chmod +x load_simulator.sh
 . load_simulator.sh <API GATEWAY URL>
@@ -171,7 +171,7 @@ chmod +x server_deploy.sh
 chmod +x load_simulator.sh
 . load_simulator.sh <API GATEWAY URL>
 ```
-<b>Step 8</b>: Go back to DynamoDB inside your console and notice that now Order has a table named as “Order-Pooled” and Product has tables for each tenant. This indicates that Order is now following the pooled data partitioning and Product is now in Silo model.
+<b>Step 8</b>: Go back to Amazon DynamoDB inside your console and notice that now Order has a table named as “Order-Pooled” and Product has tables for each tenant. This indicates that Order is now following the pooled data partitioning and Product is now in Silo model.
 
 # Conclusion
 We just saw how you can progressively add tenant isolation across various components of your application. Multi-tenancy is the key to a SaaS based application and hence it is important to architect your application keeping that in mind across both application and storage layers.
