@@ -11,7 +11,7 @@ Much of the work that we’ll be doing in this lab will use the AWS Cloud9 IDE. 
 
 <b>Step 2</b>: Once you’re in AWS Cloud9 IDE, expand the serverless-saas-layers folder. Navigate to Lab1. Under this folder you’ll find the client and server folders for our Lab 1 solution. This folder holds all the information we’ll need for Lab 1. 
 
-Our first step is to get the lambda functions of our service deployed and running. To achieve this, we’ll run some provided scripts that will automate this deployment. To run this command, we’ll need to open a terminal window in the IDE. Select “Window” and “New Terminal” in AWS Cloud9. 
+Our first step is to get the AWS Lambda functions of our service deployed and running. To achieve this, we’ll run some provided scripts that will automate this deployment. To run this command, we’ll need to open a terminal window in the IDE. Select “Window” and “New Terminal” in AWS Cloud9. 
 
 In the terminal window, change the current directory to “serverless-saas-layers/Lab1”. Run the below two commands to deploy the CloudFormation for this stack. Wait for this command to finish.
 
