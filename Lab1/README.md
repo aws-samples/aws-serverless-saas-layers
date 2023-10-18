@@ -7,11 +7,11 @@ Before we can start digging into the details of the multi-tenant developer exper
     NOTE: If you are doing this lab as part of an AWS event, then you will be using an account that will be provisioned for you as part of this experience. 
     It’s essential that you logout of any other AWS accounts you may be actively using and use the account provisioned for you. 
 
-Much of the work that we’ll be doing in this lab will use the AWS Cloud9 IDE. This IDE will give us access to the code and provide us with a terminal window that will be used to invoke various commands as part of the overall experience. To open the Cloud9 IDE, you first navigate to the Cloud9 service and inside “Your environments” click on “Open IDE” inside "Serverless-SaaS" environment. This will launch the Cloud9 IDE.
+Much of the work that we’ll be doing in this lab will use the AWS Cloud9 IDE. This IDE will give us access to the code and provide us with a terminal window that will be used to invoke various commands as part of the overall experience. To open the AWS Cloud9 IDE, you first navigate to the AWS Cloud9 service and inside “Your environments” click on “Open IDE” inside "Serverless-SaaS" environment. This will launch the AWS Cloud9 IDE.
 
-<b>Step 2</b>: Once you’re in Cloud9 IDE, expand the serverless-saas-layers folder. Navigate to Lab1. Under this folder you’ll find the client and server folders for our Lab 1 solution. This folder holds all the information we’ll need for Lab 1. 
+<b>Step 2</b>: Once you’re in AWS Cloud9 IDE, expand the serverless-saas-layers folder. Navigate to Lab1. Under this folder you’ll find the client and server folders for our Lab 1 solution. This folder holds all the information we’ll need for Lab 1. 
 
-Our first step is to get the lambda functions of our service deployed and running. To achieve this, we’ll run some provided scripts that will automate this deployment. To run this command, we’ll need to open a terminal window in the IDE. Select “Window” and “New Terminal” in Cloud9. 
+Our first step is to get the lambda functions of our service deployed and running. To achieve this, we’ll run some provided scripts that will automate this deployment. To run this command, we’ll need to open a terminal window in the IDE. Select “Window” and “New Terminal” in AWS Cloud9. 
 
 In the terminal window, change the current directory to “serverless-saas-layers/Lab1”. Run the below two commands to deploy the CloudFormation for this stack. Wait for this command to finish.
 
@@ -30,7 +30,7 @@ This step can take up to 3-4 mins to complete. Once this has been completed, the
 
 <p align="center"><kbd><img src="../Images/Lab1-APIGateway.png" alt="Architecture Overview"/></kbd></p>
 
-<b>Step 4</b>: We will now use a script to simulate calls to these services. This will generate data and logs for us, which we will then explore using Amazon DynamoDB and Amazon Athena. Now, navigate back to the terminal window inside Cloud9. From within Lab1 folder at the terminal prompt, run the below command.
+<b>Step 4</b>: We will now use a script to simulate calls to these services. This will generate data and logs for us, which we will then explore using Amazon DynamoDB and Amazon Athena. Now, navigate back to the terminal window inside AWS Cloud9. From within Lab1 folder at the terminal prompt, run the below command.
 
 ```
 chmod +x load_simulator.sh
