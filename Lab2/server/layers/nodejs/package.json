@@ -9,7 +9,7 @@
     "lint": "eslint --fix ."
   },
   "devDependencies": {
-    "njwt": "^1.0.0"
+    "njwt": "^2.0.1"
   },
   "author": "",
   "dependencies": {
