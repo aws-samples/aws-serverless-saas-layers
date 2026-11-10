@@ -1,5 +1,51 @@
 # Building Serverless SaaS with AWS Lambda layers
 
+## Security notice — read before deploying
+
+**This workshop's entire tenant-authentication mechanism is a teaching exercise, not a security
+control. Deploy it to a throwaway account, put no real data in it, and delete the stack when you
+finish. Do not lift these patterns into an application.**
+
+The labs build tenant awareness up in stages, and securing the boundary is not one of those
+stages. Specifically, with file references so you can verify each point:
+
+- **The JWT signing key is a fixed value published in this repository**, and the same value is used
+  by both the client simulator and the server. It appears in `Lab2/README.md:13` — where you are
+  asked to type it in as part of Lab 2 — and in `token-manager.js` in `Lab3`, `Lab4`,
+  `Solution/Lab2`, `Solution/Lab3` and `Solution/Lab4`. Anyone who can read this repository can
+  mint a token for any tenant against any deployment that keeps the published key.
+- **`token-manager.js` is the only thing standing between a caller and another tenant's data.** It
+  calls `nJwt.verify(jwtToken, signingKey)` and then reads `tenantId` straight from the token body.
+  Because the key is public, so is the ability to choose that `tenantId`.
+- **No API Gateway method has an authorizer.** There is no `AuthorizationType` or `Auth` block in
+  any `saas-sam-stack.yaml` in this repository, and no Cognito or Lambda authorizer anywhere. Lab 1
+  is deliberately unauthenticated as its starting point, and nothing added later closes the gateway.
+- **The tenant identifier is concatenated into the DynamoDB table name** that *is* the isolation
+  boundary in the Silo model — `partition-manager.js` lines 112 and 164, in both `Lab4` and
+  `Solution/Lab4`, build `tableName + "-Silo-" + tenantId`. Combined with the point above, the
+  caller chooses the partition.
+- **All eight `server_deploy.sh` scripts deploy to the same stack name**, `saas-sam-stack`. Running
+  a different lab's deploy replaces whatever was deployed before it, rather than standing up
+  alongside it.
+
+If you adapt this material, what belongs in its place is: a real authorizer in front of the API,
+tokens issued and signed by an identity provider you control (Amazon Cognito, for example) rather
+than by a key committed to source, verification of the signature *and* the issuer and audience
+against that provider, tenant context taken only from a verified claim, and IAM policies scoped per
+tenant rather than relying on the application to pick the right table.
+
+**A fresh deployment of this workshop will not succeed as it stands.** Every one of the 48
+`Runtime:` declarations across these templates is `nodejs14.x` (and `nodejs14.x` appears 53 times
+in total, the remainder under `CompatibleRuntimes` on the layers), and AWS Lambda no longer permits
+new function creation on that runtime. You would need to raise the runtime before anything deploys. That bounds who is
+exposed to existing long-running deployments and forks rather than new adopters, and it is also why
+the published signing key has not been replaced here: changing it would alter what Lab 2 teaches
+without protecting anybody who is not already affected.
+
+**If you have an existing deployment of this workshop**, treat every token ever issued against it
+as forgeable, and treat the data in it as having been readable and writable by anyone who could
+reach the endpoint. Updating this repository does not change a deployment that is already running.
+
 ## Introduction
 One of the key goals of every software-as-a-service (SaaS) architect, is to create an environment where the complexity of multi-tenancy is largely hidden away from developers. The goal of this session is to introduce frameworks, libraries, and tooling that limits a developer’s need to have any awareness of tenant context. This will free up developers to focus on the features and functionality of their system. 
 
